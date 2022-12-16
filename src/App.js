@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from "./components/Dashboard";
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import About from "./components/About";
+import Admin from './components/Admin'
+import Navbar from "./components/Navbar";
+import 'flowbite'
+import Login from "./components/Login";
+import Health from "./components/Health";
+import Notfound from "./components/Notfound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+  {/* <Dashboard/> */}
+  <Navbar/>
+  <Router>
+    <Routes>
+      <Route exact path="/" element={<Dashboard></Dashboard>}></Route>
+      <Route exact path="/about" element={<About/>}></Route>
+      <Route exact path="/Admin" element={<Admin/>}></Route>
+      <Route exact path="/Login" element={<Login/>}></Route>
+      <Route exact path="/Health" element={<Health/>}></Route>
+      <Route exact path="*" element={<Notfound/>}></Route>
+
+      
+
+    </Routes>
+  </Router>
+      </>
   );
 }
 
